@@ -1,0 +1,31 @@
+﻿@using Survey.Models;
+@{
+
+    ViewBag.Title = "InvalidInput";
+
+}
+
+<script type="text/javascript" src="main.js"></script>
+
+<div class="topBar">
+
+    <h1>Невалиден отговор.</h1>
+
+    <h3 style="color:black; text-align:center">Моля, изберете някой от предложените отговори или напишете ваш при опцията "Друго: "!</h3>
+</div>
+
+<div id="wrapper">
+
+    <div id="Form">
+
+        <form method="post" action="~/Home/Index">
+
+            <table style="width:100%" align="right">
+
+                <div style="text-align:center">
+
+                    <input class ="fsSubmitButton" type="submit" value="Назад" />
+
+                </div>
+
+        </form>

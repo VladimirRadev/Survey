@@ -1,0 +1,45 @@
+﻿@using Survey.Models;
+@model Survey.Models.View_Models.QuestionViewModel
+@{
+    ViewBag.Title = "Delete Question";
+    Question chosenQuestion = new Question();
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+    <div class="topBar">
+
+        <h1>Изтриване на въпрос</h1>
+
+    </div>
+
+    <div id="wrapper">
+        <form method="post" action="~/Admin/DeleteQuestion">
+
+            <h3 style="text-align:center">Изберете въпрос от листа</h3>
+
+            <div style="text-align:center" class="chose">
+
+                @Html.DropDownListFor(model => model.SelectedID, new SelectList(DataProvider.GetAllQuestions(), "Id", "Question_text"))
+
+
+            </div>
+
+            <br /><br />
+
+
+            <div style="text-align:center">
+
+                <input style="width:300px" type="submit" value="Изтрий въпрос" />
+
+            </div>
+        </form>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+﻿@using Survey.Models;
+@{
+
+    ViewBag.Title = "CreateQuestion";
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+    <div class="topBar">
+
+        <h1>Създаване на въпрос</h1>
+
+    </div>
+
+    <div id="wrapper">
+
+        <form method="post" action="~/Admin/SaveQuestion">
+
+            <table align="center" style="font-size:24px">
+
+                <tr class="TableContents">
+
+                    <td>
+
+                        <h5>Въведете въпрос</h5>
+
+                        <input type="text" id="inputQ" name="question" value="" />
+
+                    </td>
+
+
+                    <td>
+
+                        <h5>Въведете възможни отговори:</h5>
+
+                        <input type="text" id="inputA" name="answer1" value="" />
+
+                        <br />
+
+                        <input type="text" id="inputA" name="answer2" value="" />
+
+                        <br />
+
+                    </td>
+
+                    <td>
+
+                        <h5>Въведете периода, в който да е активен въпроса:</h5>
+
+                        <p>От: <input type="date" id="startDate" name="startDate" value="" /><p>   До: <input type="date" id="endDate" name="endDate" value="" /></p></p>
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+            <div style="text-align:center">
+
+                <input type="submit" value="Създай въпрос" />
+
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

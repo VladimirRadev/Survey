@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body>
+    @{
+        var port = Request.Url.Port;
+     }
+    <div class="logo">
+        <style>
+             a.noCol 
+            {
+                color:transparent;
+                background-color:transparent;
+            }
+        </style>
+        <a class="noCol" href="https://multisession.nemetschek.bg/Survey"><img src="https://experts.nemetschek.bg/confluence/download/attachments/524290/atl.site.logo?version=3&modificationDate=1471866359780&api=v2" /></a>
+    </div>
+
+    <div class="topBar">
+
+    </div>
+
+    @RenderBody()
+
+
+    <div class="bottomBar">
+
+        <p>&copy; @DateTime.Now.Year - Немечек анкета</p>
+
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

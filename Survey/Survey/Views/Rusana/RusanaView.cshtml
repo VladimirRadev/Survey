@@ -1,0 +1,60 @@
+﻿@using Survey.Models;
+
+@{
+
+    ViewBag.Title = "RusanaView";
+    int id = (int)ViewData["idTest"];
+
+}
+<head>
+    <style>
+        #chart_con{
+            width:50%;
+            height:auto;
+            border:1px solid black;
+            margin:auto;
+        }
+    </style>
+</head>
+<h1>@id</h1>
+<div id="chart_con">
+    <h1 align="center">"question"</h1>
+    <br />
+<canvas id="myChart" ></canvas>
+    </div>
+<script src="http://localhost:64354/Scripts/Chart.js"></script>
+<script>
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var labelk = ["Chocolate", "Vanilla", "Strawberry"];
+    var data_man = [3, 7, 4];
+    var data_women=[4, 3, 5];
+
+    var data = {
+        labels: labelk,
+        datasets: [{
+            label: "Man",
+            backgroundColor: "blue",
+            data: data_man
+        }, {
+            label: "women",
+            backgroundColor: "red",
+            data: data_women
+        }]
+    };
+
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: {
+            barValueSpacing: 20,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        min: 0,
+                    }
+                }]
+            }
+        }
+    });
+
+</script>

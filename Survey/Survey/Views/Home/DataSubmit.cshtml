@@ -1,0 +1,85 @@
+﻿@{
+
+    ViewBag.Title = "Submit data";
+    string[] gender = new string[2] { "Мъж", "Жена" };
+    string[] experience = new string[4] { "0-5 години", "5-10 години", "10-15 години", "15+ години" };
+
+
+}
+
+<div class="topBar">
+
+
+    <h1>Лични данни за крадене</h1>
+
+
+</div>
+
+<div id="Form">
+    <h2 style="text-align:center">Какъв пол сте?</h2>
+
+    <form method="post" action="~/Home/PersonalDataSubmit">
+
+        <table style="width:100%" align="right" font-size="26px">
+
+            <tr class="TableContents">
+                <td>
+                    <input name="gender" id="@gender[0]" type="radio" class="container" value="@gender[0]" />
+                    <label class="lbl" onclick="document.getElementById('@gender[0]') .checked = true;">@gender[0]</label>
+                </td>
+            </tr>
+
+
+            <tr class="TableContents">
+
+                <td>
+                    <input name="gender"id="@gender[1]" type="radio" class="container" value="@gender[1]" />
+                    <label class="lbl" onclick="document.getElementById('@gender[1]').checked = true;">@gender[1]</label>
+                </td>
+
+            </tr>
+
+
+        </table>
+
+        <h2 style="text-align:center">Колко голям стаж имате във фирмата?</h2>
+
+        <table style="width:100%" align="right">
+
+            <tr class="TableContents" text-align: left; >
+                <td>
+                    <input id="@experience[0]" type="radio" name="experience" class="container" value="@experience[0]" />
+                    <label class="lbl" onclick="document.getElementsById('@experience[0]').checked = true;">@experience[0]</label>
+                </td>
+
+                <td>
+                    <input id="@experience[2]" type="radio" name="experience" class="container" value="@experience[2]" />
+                    <label class="lbl" onclick="document.getElementById('@experience[2]').checked = true;">@experience[2]</label>
+                </td>
+            </tr>
+
+            <tr class="TableContents">
+
+                <td>
+                    <input id="@experience[1]" type="radio" name="experience" class="container" value="@experience[1]" />
+                    <label class="lbl" onclick="document.getElementById('@experience[1]').checked = true;">@experience[1]</label>
+                </td>
+                <td>
+                    <input id="@experience[3]" type="radio" name="experience" class="container" value="@experience[3]" />
+                    <label class="lbl" onclick="document.getElementById('@experience[3]').checked = true;">@experience[3]</label>
+                </td>
+            </tr>
+
+        </table>
+
+        <br />
+
+        <br />
+
+        <div style="text-align:center" font-size="20">
+            <input style="margin-right:42px;" id="Form"class ="fsSubmitButton" type="submit" value="Напред" />
+        </div>
+
+    </form>
+
+</div>

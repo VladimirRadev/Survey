@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SurveyModelStoreContainer" CdmEntityContainer="SurveyContext">
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="SurveyModel.Answer">
+        <MappingFragment StoreEntitySet="Answers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Answer_text" ColumnName="Answer_text" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="Question_id" ColumnName="Question_id" />
+          <ScalarProperty Name="Is_deleted" ColumnName="Is_deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="SurveyModel.Question">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Question_text" ColumnName="Question_text" />
+          <ScalarProperty Name="Start_date" ColumnName="Start_date" />
+          <ScalarProperty Name="End_date" ColumnName="End_date" />
+          <ScalarProperty Name="Is_deleted" ColumnName="Is_deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OriginalAnswers">
+      <EntityTypeMapping TypeName="SurveyModel.OriginalAnswer">
+        <MappingFragment StoreEntitySet="OriginalAnswers">
+          <ScalarProperty Name="Is_deleted" ColumnName="Is_deleted" />
+          <ScalarProperty Name="Question_id" ColumnName="Question_id" />
+          <ScalarProperty Name="Answer_text" ColumnName="Answer_text" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,52 @@
+﻿@using Survey.Models;
+@{
+
+    ViewBag.Title = "Statists Page";
+
+    ViewBag.Title = "Home Page";
+
+    var sql = "";
+
+    if (IsPost)
+    {
+        sql = Request.Form["textBox"];
+    }
+
+    var i = 0;
+}
+
+<div class="topBar">
+
+    <h1>@ViewData["statisricType"]</h1>
+
+    <div style="padding:10px">
+
+        <img border="0" alt="Статистика" src="@ViewData["stats"]" width="400" height="400">
+
+        <table style="width:100%" align="right">
+            <tr>
+
+                @foreach (var answer in ViewData["answers"] as IList<OriginalAnswer>)
+                {
+                    if(i==3)
+                    {
+                        </tr>
+                        <tr>
+                    }
+                    <td>
+                        <input id="@answer.Id" type="radio" class="container" name="Answer"
+                               onclick="document.getElementById('textBox').value = '';" value="@answer.Answer_text" />
+
+                        <label onclick="document.getElementById(@answer.Id).checked = true;
+
+                        document.getElementById('textBox').value = '';">@answer.Answer_text</label>
+                    </td>
+                }
+
+            </tr>
+        </table>
+        
+</div>
+
+        </div>
+

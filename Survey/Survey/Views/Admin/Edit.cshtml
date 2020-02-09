@@ -1,0 +1,126 @@
+﻿@using Survey.Models;
+@model Survey.Models.View_Models.QuestionViewModel
+@using System.Collections.Generic;
+@{
+    ViewBag.Title = "EditQuestion";
+}
+
+<meta name="viewport" content="width=device-width" />
+<title></title>
+
+
+<div class="topBar">
+
+    <h1>Редактиране на въпрос</h1>
+
+</div>
+<div class="wrapper">
+
+    <h3 align="center">Изберете въпрос от списъка</h3>
+
+    <form method="post" action="~/Admin/LoadQuestionDetails">
+
+        <div style="text-align:center" class="chose">
+
+            @Html.DropDownListFor(model => model.SelectedID, new SelectList(DataProvider.GetAllQuestions(), "Id", "Question_text"))
+
+        </div>
+
+        <br /><br />
+
+        <div style="text-align:center">
+
+            <input style="width:300px" type="submit" value="Зареди детайли" />
+
+        </div>
+
+    </form>
+
+
+    <div>
+
+        @if (Model != null && Model.QuestionForEdit != null)
+        {
+
+            <form method="post" action="~/Admin/UpdatedQuestion">
+
+                <table align="center">
+
+                    <tr>
+
+                        <td>
+
+                            <h3>Текст на въпроса</h3>
+
+                            <br />
+                            
+                            @Html.TextAreaFor(m => m.QuestionForEdit.Question_text)
+
+                        </td>
+
+
+                        @*<td>
+
+                            <h3>ID</h3>
+
+                            <br />
+
+                            @Html.TextBoxFor(m => m.SelectedID)
+
+                        </td>*@
+
+                        <td>
+
+                            <h3>Отговорите на въпроса</h3>
+
+                            <br />
+
+                            @Html.TextBoxFor(m => m.Answer1)
+
+                            <br />
+
+                            @Html.TextBoxFor(m => m.Answer2)
+
+                        </td>
+
+                        <td></td><td></td>
+
+                        <td>
+
+                            <h3>Start date</h3>
+
+                            <br />
+
+                            @Html.EditorFor(m => m.QuestionForEdit.Start_date)
+                        
+                        </td>
+
+                        <td>
+
+                            <h3>End date</h3>
+                            <br />
+                            @Html.EditorFor(m => m.QuestionForEdit.End_date)
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+                <div style="text-align:center">
+
+                    <input type="submit" value="Промени" />
+
+                </div>
+                
+
+            </form>
+        }
+
+        <!--End of table-->
+    </div>
+    <!--End of eq-->
+
+
+
+</div>

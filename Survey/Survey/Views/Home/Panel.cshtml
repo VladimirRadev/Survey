@@ -1,0 +1,41 @@
+﻿@{
+
+    ViewBag.Title = "Admin Panel";
+
+}
+<html>
+
+<div class="topBar">
+
+    <h1>Администраторски панел</h1>
+
+    <h3 style="color:black; text-align:center">@ViewData["question"]</h3>
+</div>
+
+<body>
+    <div class="eq">
+
+            <table style="width:100%">
+
+                <tr> 
+
+                    <td><a href="~/Admin/Create">Създай въпрос</a></td>
+
+                    <td><a href="~/Admin/Edit">Редактирай въпрос</a></td>
+
+                </tr>
+
+                <tr>
+
+                    <td><a href="~/Admin/Delete">Изтрий въпрос</a></td>
+
+                    <td><a href="~/Admin/ShowStats">Покажи статистика</a></td>
+
+                </tr>
+                
+            </table>
+
+        
+</div>
+</body>
+</html>

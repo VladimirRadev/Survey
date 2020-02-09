@@ -1,0 +1,84 @@
+﻿@using Survey.Models;
+@using System.Collections.Generic;
+@{
+    ViewBag.Title = "EditQuestion";
+    int qId;
+}
+
+<meta name="viewport" content="width=device-width" />
+<title></title>
+<script>
+    document.onload = function () {
+
+    }
+    function show() {
+        //alert(document.getElementById("message").value);
+        var message = document.getElementById("message");
+        var list = document.getElementById("dropdown");
+        @*var answers =@List<OriginalAnswer>();
+        @foreach (var item in ViewData["answers"]) {
+
+        } @ViewData["answers"];*@
+
+        if (list.selectedIndex == -1) {
+            alert("..redicting..");
+            @{int port = Request.Url.Port;
+                string url = "http://localhost:" + port.ToString() + "/Admin/Panel";
+                Response.Redirect(url);
+            }
+        } else {
+            message.value = list.options[list.selectedIndex].text;
+            message.name = list.options[list.selectedIndex].id;
+            "<%#Survey.Controllers.IDParser.setqId(" + message.name + ")%>";
+        }
+    }
+
+</script>
+
+<div class="topBar">
+
+    <h1>Редактиране на въпрос</h1>
+
+    @*<h3 style="color:black; text-align:center">@ViewData["question"]</h3>
+        <br><br>*@
+
+</div>
+
+<div id="wrapper">
+
+    <h3>Изберете въпрос от листа</h3>
+
+    <div class="eq">
+        <select name="Question" id="dropdown" onchange="form.submit()">
+            @{
+                List<Question> tempQs = DataProvider.GetAllQuestions();
+                foreach (var i in tempQs as List<Question>) {
+                    <option id="@i.Id" value="@i.Question_text">@i.Question_text</option>
+                }
+            }
+        </select>
+        <input type="submit" value="Edit" onclick="show();">
+        <h3>Текст на въпроса</h3>
+        @{
+            <textarea id="message" name="message" rows="1" cols="1"></textarea>
+        }
+        <h3>Отговор</h3>
+        <div id="answers" name="answers">
+            @*@{
+                foreach (var a in DataProvider.GetOriginalAnswers(i) as List<OriginalAnswer>) {
+                    <input class="@a" value="@a.">@i.Question_text</input>
+                }
+            }*@
+        </div>
+        <br />
+        <h3>Start date</h3>
+        <input type="date" name="sday">
+        <br>
+        <h3>Finish date</h3>
+        <input type="date" name="fday">
+    </div>
+
+    <input type="submit">
+
+
+</div>

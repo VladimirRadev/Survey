@@ -1,0 +1,90 @@
+﻿@using Survey.Models;
+@{
+
+    ViewBag.Title = "Home Page";
+
+    var sql = "";
+
+    if (IsPost)
+    {
+        sql = Request.Form["textBox"];
+    }
+}
+
+<div class="topBar">
+
+    <h1>Периодични въпроси</h1>
+
+    <h3 style="color:black; text-align:center">@ViewData["question"]</h3>
+
+</div>
+
+<div id="wrapper">
+
+    <div id="Form">
+
+        <form method="post" action="~/Home/DataSubmit">
+
+            <table style="width:100%" align="right">
+
+                @foreach (var answer in ViewData["answers"] as IList<OriginalAnswer>)
+                {
+                    <tr class="TableContents">
+
+                        <td>
+
+                        <input id="@answer.Id" type="radio" class="container" name="Answer" 
+                               onclick="document.getElementById('textBox').value = '';" value="@answer.Answer_text" />
+                        <label class="lbl"
+                               onclick="document.getElementById(@answer.Id).checked = true;
+                                        document.getElementById('textBox').value = '';">@answer.Answer_text</label>
+                        
+                        </td>    
+                    </tr>
+
+                }
+
+                <tr class="TableContents">
+
+                    <td>
+
+                        <input type="radio" id="other" name="Answer"class="container" value="@sql"> <label class="lbl">Друго:</label>
+
+                        <input type="text" id="textBox" name="textBox" value="" />
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+            <div style="text-align:center">
+
+                <input type="submit" class="fsSubmitButton" value="Напред" />
+
+            </div>
+
+        </form>
+
+        <!-- End of Form-->
+    </div>
+
+    <!--End of wrapper-->
+</div>
+<script>
+    window.onload = function () {
+
+        var radioButton = document.getElementById("other");
+        var textArea = document.getElementById("textBox");
+
+        radioButton.onclick = function () {
+            //alert("Click");
+            textArea.focus();
+        }
+
+        textArea.onfocus = function () {
+            radioButton.checked = true;
+        }
+
+    }
+</script>
